@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body { /* The body is the entire grid */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60vh 40vh 30vh 30vh 45vh;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+}
+
+h1 {
+        font-size: 60px;
+        letter-spacing: -1px;
+        font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+        line-height: 30px;
+        font-family: 'Roboto', sans-serif;
+}
+
+/********** SECTIONS **********/
+
+.section_one, .section_two, .section_three{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        width: 100%;
+}
+
+.section_two h1, .section_three h1 {
+        font-size: 60px;
+}
+
+
+/***** SECTION 1 *****/
+
+.title h1 {
+        color: #133E57;
+        text-align: center;
+        font-size: 100px;
+}
+
+.image_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.image_container img {
+        width: 400px;
+        height: auto;
+        object-fit: cover;
+        border: 8px solid white;
+        border-color: white;
+        box-shadow: 0 10px 30px #504B43;
+}
+
+.first_image {
+        height: 300px;
+        object-fit: cover;
+        object-position: 35% center;
+}
+
+
+.section_one {
+        grid-row: 1;
+        background-color: #FFF2E1;
+        overflow-x: hidden;
+        width: 100%;
+        padding-top: 40px;
+}
+
+/***** SECTION 2 *****/
+
+.section_two {
+        grid-row: 2;
+        background-color: #C36D2B;
+        color: #FFF2E1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+}
+
+.section_two h2 {
+        margin-left: 310px;
+}
+
+.map_container {
+        align-self: flex-end;
+        width: 30%;
+        margin-right: 10%;
+        border: 8px solid white; /* Matches your image style! */
+        overflow: hidden;
+        line-height: 0;
+        margin-top: -280px;
+        margin-bottom: 80px;
+}
+
+.map_container iframe {
+    width: 100%;    /* Makes the map fill the container width */
+    height: 400px;  /* You can adjust the height here */
+    display: block;
+}
+
+.sub-title {
+        margin-top: 110px;
+}
+
+.sub-title h1 {
+        text-align: left;
+        margin-left: 300px;
+}
+
+/***** SECTION 3 *****/
+
+.section_three {
+        grid-row: 3;
+        background-color: #5A632C;
+        color: #FFF2E1;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 50px;
+        padding: 40px 0;
+}
+
+.section_three h2 {
+        padding-left: 80px;
+}
+
+.events {
+        padding-left: 100px;
+}
+
+.events h1 {
+        position: relative;
+        z-index: 1;
+        margin: 10px 0;
+}
+
+.events h1 span {
+        position: relative;
+        z-index: 2;
+}
+
+.events h1 span::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+
+        bottom: -5px;
+        right: -15px;
+
+        width: 100%;
+        height: 70%;
+
+        background-color: #75813A;
+        border-radius: 2px;
+}
+
+.events h1:nth-child(2) {
+        padding-left: 90px;
+}
+
+.event-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap 15px;
+
+        background-color:#75813A;
+        padding: 30px;
+        width: 300px;
+        min-height: 200px;
+
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.event-item h2 {
+        padding-left: 0 !important;
+        font-size: 1.2rrem;
+        color: #FFF2E1;
+        opacity: 0.9;
+}
+
+
+/***** SECTION 4 *****/
+
+.section_four {
+        background-color: #133E57;
+        grid-row: 4;
+        color: black;
+}
+
+.section_four h1{
+        margin-left: 5%;
+        line-height: 30px;
+}
+
+/***** SECTION 5 *****/
+
+.section_five {
+        grid-row: 5;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+}
+
+.section_five img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+}
+/* 2. Create the overlay to sit on top of the image */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* 3. Center the button inside the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Optional: darkens the image slightly so the button stands out */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.info-button {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    /* 4. Add the styles to make it look like a button */
+    padding: 15px 30px;
+    background-color: rgba(255, 242, 225, 0.2);
+    color: #FFF2E1;
+    border: 2px solid #FFF2E1;
+    border-radius: 50px;
+    font-weight: bold;
+    backdrop-filter: blur(5px); /* Modern glass effect */
+    transition: all 0.3s ease;
+}
+
+.info-button:hover {
+    background-color: #FFF2E1;
+    color: #5A632C;
+}
+
+
+/********** MOBILE STYLES (Screen sizes smaller than 768px) **********/
+@media (max-width: 768px) {
+
+    /* 1. RESET THE FOUNDATION */
+    html, body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden; /* Fixes the horizontal gap/white space */
+        display: block;    /* Turns off Grid for the main page flow */
+    }
+
+    /* 2. FORCE SECTIONS TO FILL 100% */
+    .section_one, .section_two, .section_three, .section_four, .section_five {
+        display: block !important; /* Stack vertically */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 50px 20px !important; /* Consistent padding inside the boxes */
+        box-sizing: border-box;         /* Padding won't push the width past 100% */
+
+        /* Stop the desktop Grid from positioning these */
+        grid-row: auto !important;
+        height: auto !important;
+    }
+
+    /* 3. FIX THE TITLES (Removing the desktop offsets) */
+    .title h1 {
+        font-size: 38px;
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0 !important;
+    }
+
+    /* 4. FIX THE EVENTS (Removing the 100px padding) */
+    .events {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+
+    .events h1:nth-child(2) {
+        padding-left: 0 !important; /* Removes the 90px indent */
+    }
+
+    /* 5. IMAGE CAROUSEL WIDTH FIX */
+    .image_container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 10px 0 30px 0; /* Space for shadows */
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .image_container::-webkit-scrollbar {
+            display: none;
+    }
+
+    .image_container img {
+        width: 75%; /* Fits nicely on screen */
+        height: 200px;
+        flex-shrink: 0;
+
+        box-shadow: none !important;
+    }
+
+    /***** SECTION 2 MOBILE *****/
+
+    .section_two {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center everything for a clean mobile look */
+        padding: 40px 20px !important;
+    }
+
+    .sub-title {
+        margin-top: 0 !important; /* Remove that huge 110px desktop gap */
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-title h1 {
+        margin-left: 0 !important; /* Remove the 300px desktop offset */
+        text-align: center;
+        font-size: 36px; /* Adjust size for mobile */
+    }
+
+    .section_two h2 {
+        margin-left: 0 !important; /* Remove the 310px desktop offset */
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
+    .map_container {
+        align-self: center; /* Move from right-side to center */
+        width: 100%;      /* Make map fill the phone width */
+        margin: 30px 0 0 0 !important; /* Reset negative margins; add space above */
+        max-width: 100%;
+        border-width: 4px; /* Slightly thinner border for small screens */
+    }
+
+    .map_container iframe {
+        height: 300px; /* Shorter height so it doesn't take the whole screen */
+    }
+
+    /***** SECTION 3 MOBILE *****/
+
+    .section_three {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        position: relative;
+
+        /* 1. Keep this large enough so the boxes don't hit the title */
+        padding-top: 150px !important;
+        padding-bottom: 40px !important;
+
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .events {
+        position: sticky !important;
+        left: 20px;
+
+        /* 2. CHANGE THIS: A larger negative number moves the title HIGHER.
+           Try -140px or -150px to push it toward the top edge. */
+        margin-top: -400px !important;
+
+        width: 0px !important;
+        flex-shrink: 0;
+        z-index: 10;
+        pointer-events: none;
+        scroll-snap-align: none !important;
+    }
+
+    .events h1 {
+        font-size: 38px;
+        margin: 0; /* Removed margin to save vertical space */
+        line-height: 0.9; /* Tightens the text vertically */
+        display: block;
+        white-space: nowrap;
+    }
+
+    .event-item {
+        /* 3. This ensures the boxes stay at the bottom of the padding area */
+        align-self: flex-end;
+
+        flex-shrink: 0;
+        width: 80% !important;
+        margin-left: 20px;
+        scroll-snap-align: center;
+        min-height: 180px;
+        background-color: #75813A;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    /***** SECTION 5 MOBILE *****/
+
+    .section_five {
+        /* 1. Set a specific height so the banner feels substantial on a phone */
+        height: 350px !important;
+        width: 100% !important;
+        position: relative;
+        overflow: hidden;
+        /* Remove any default padding from the 'Unlock Sections' rule */
+        padding: 0 !important;
+    }
+
+    .section_five img {
+        width: 100%;
+        height: 100%;
+        /* 2. 'cover' ensures the photo fills the box without stretching */
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.3); /* Slightly darker for mobile readability */
+    }
+
+    .info-button {
+        /* 3. Make the button a bit more finger-friendly */
+        padding: 14px 28px;
+        font-size: 16px;
+        border-width: 2px;
+        /* Ensures the glass effect works well on mobile screens */
+        backdrop-filter: blur(8px);
+    }
+
+}
