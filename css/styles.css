@@ -3,7 +3,7 @@
 body { /* The body is the entire grid */
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 60vh 40vh 30vh 30vh 45vh;
+        grid-template-rows: 60vh 40vh 30vh 45vh 45vh;
         font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
