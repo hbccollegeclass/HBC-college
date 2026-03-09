@@ -129,9 +129,8 @@ h2 {
     background-color: #5A632C;
     color: #FFF2E1;
     padding: 100px 0;
-    position: relative;
+    position: relative; /* Anchor for absolute Title and Arrow */
     
-    /* Forces cards to stay in one long horizontal line */
     display: flex;
     flex-direction: row; 
     flex-wrap: nowrap;
@@ -142,34 +141,29 @@ h2 {
     box-sizing: border-box;
 }
 
-/* Hide Scrollbar for a clean "App" look */
+/* Hide Scrollbar */
 .section_three::-webkit-scrollbar {
     display: none;
 }
 
 /* TOP SIDE: The Title */
 .events {
-    /* STICKY is the fix: it stays in the center of the VISIBLE area */
-    position: sticky;
+    /* Fixed to the section's top, ignoring the card scroll */
+    position: absolute;
+    top: 40px;
     left: 0;
-    /* Using 100% of the VIEWPORT width, not the total scroll width */
-    width: 100%; 
-    min-width: 100vw; 
+    width: 100%;
     text-align: center;
-    
-    /* This sits the title at the top */
-    margin-bottom: 50px;
-    flex-shrink: 0;
     z-index: 10;
-    
-    /* This prevents the title from moving even 1 pixel when scrolling */
-    pointer-events: none; 
 }
+
+/* IMPORTANT: Since the Title is now absolute, it won't move with scroll */
+/* We fix the centering issue by using width: 100% on a position: absolute */
 
 .events h1 {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     line-height: 1;
-    pointer-events: auto; /* Re-enable clicking on title if needed */
+    margin: 0 auto;
 }
 
 .events h1 span {
@@ -191,7 +185,7 @@ h2 {
 
 /* BOTTOM SIDE: The Cards */
 .event-item {
-    /* Push cards down so they sit under the sticky title */
+    /* Push cards down so they clear the absolute title */
     margin-top: 140px; 
     
     flex: 0 0 400px; 
@@ -207,21 +201,16 @@ h2 {
     max-height: 450px;
     overflow-y: auto;
     transition: transform 0.3s ease;
-    
-    /* Ensure cards stay behind the title/arrow logic */
-    position: relative;
-    z-index: 1;
 }
 
-/* FIX: Space between the left side of screen and first event */
+/* Space on the left side of the first event */
 .event-item:first-of-type {
-    /* We use a large margin-left to push it into view */
     margin-left: 50px; 
 }
 
-/* Spacer for the end so it doesn't hit the arrow */
+/* Space on the right so last card doesn't hit the arrow */
 .event-item:last-of-type {
-    margin-right: 300px;
+    margin-right: 150px;
 }
 
 .event-item:hover {
@@ -236,16 +225,14 @@ h2 {
 
 /* The Wider Pill-Shaped Arrow */
 .scroll-arrow {
-    position: sticky;
-    right: 30px;
-    /* This calculation keeps it pinned to the right edge of the VISIBLE screen */
-    left: calc(100vw - 150px);
+    /* Use Fixed to keep it pinned to the screen window */
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     
-    align-self: center;
-    margin-top: 100px;
-
     width: 110px; 
-    height: 55px;
+    height: 60px;
     background-color: #FFF2E1;
     color: #5A632C;
     border-radius: 50px;
@@ -265,7 +252,9 @@ h2 {
 .scroll-arrow:hover {
     background-color: #C36D2B;
     color: white;
+    transform: translateY(-50%) scale(1.1);
 }
+
 /***** SECTION 4: LEADERS *****/
 
 .section_four {
