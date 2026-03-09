@@ -4,66 +4,47 @@
 /******** GLOBAL STYLES ********/
 
 body {
-    /* Main page layout using CSS Grid - Changed rows to auto to prevent overflow */
+    /* Main page layout */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto;
 
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6; /* Added for better readability */
+    line-height: 1.6;
 
     margin: 0;
     padding: 0;
+    background-color: #FFF2E1;
 }
 
 h1 {
-    font-size: clamp(40px, 8vw, 60px); /* Responsive sizing */
+    font-size: clamp(40px, 8vw, 60px);
     letter-spacing: -1px;
-    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
 h2 {
     line-height: 1.4;
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
 /******** SECTIONS ********/
 
-/* Base layout for the first three sections */
 .section_one,
 .section_two,
-.section_three {
+.section_four {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     width: 100%;
-    padding: 60px 0; /* Consistent vertical breathing room */
+    padding: 80px 0;
 }
 
-.section_two h1,
-.section_three h1 {
-    font-size: clamp(35px, 5vw, 60px);
-}
-
-
-/***** SECTION 1 *****/
+/***** SECTION 1: HERO *****/
 
 .section_one {
     grid-row: 1;
     background-color: #FFF2E1;
-    overflow-x: hidden;
-    width: 100%;
-    padding: 80px 0;
-    display: flex;
-    flex-direction: column;
     align-items: center; 
-}
-
-/* Main page title */
-.title {
-    width: 100%;
 }
 
 .title h1 {
@@ -73,80 +54,66 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Image row below the title */
-
 .image_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: center; 
-    align-items: center;
     gap: 25px;
-
-    width: 100%;
-    max-width: 1400px; 
-    margin: 40px auto 0 auto; 
+    margin-top: 40px;
 }
 
 .image_container img {
-    width: 420px;  
+    width: 420px;  /* Wide squares */
     height: 350px; 
     object-fit: cover;
-
     border: 6px solid white;
     box-shadow: 0 15px 35px rgba(80, 75, 67, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .image_container img:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(80, 75, 67, 0.3);
+    transform: translateY(-10px);
 }
 
-/* Special crop for middle image */
-
 .first_image {
-    height: 350px; 
-    width: 420px;
     object-position: 35% center;
 }
 
-
-/***** SECTION 2 *****/
+/***** SECTION 2: VISIT *****/
 
 .section_two {
     grid-row: 2;
     background-color: #C36D2B;
     color: #FFF2E1;
-
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    
+    align-items: center;
     gap: 60px;
-    width: 100%;
     padding: 100px 5%;
     box-sizing: border-box;
 }
 
-/* Meeting time text */
+.sub-title {
+    max-width: 450px;
+}
+
+.sub-title h1 {
+    margin-bottom: 20px;
+}
 
 .section_two h2 {
     margin: 10px 0;
-    text-align: center;
 }
 
-/* Google Map container */
-
 .map_container {
-    margin: 0;
-    width: 100%;
     max-width: 500px;
+    width: 100%;
     border: 8px solid white;
-    border-radius: 4px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .map_container iframe {
@@ -155,62 +122,38 @@ h2 {
     display: block;
 }
 
-/* Section title spacing */
-
-.sub-title {
-    text-align: left;
-    max-width: 450px;
-}
-
-.sub-title h1 {
-    text-align: left;
-    margin-bottom: 20px;
-}
+/***** SECTION 3: EVENT SLIDER (FIXED) *****/
 
 
-/***** SECTION 3: Title Above + Horizontal Slider *****/
 
 .section_three {
     grid-row: 3;
     background-color: #5A632C;
     color: #FFF2E1;
-
-    /* Stack Title on top, Cards on bottom */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
     padding: 80px 0;
-    position: relative; 
+    position: relative;
     
-    /* This allows the container to hold the sliding cards */
-    overflow-x: auto; 
+    /* Using Grid to force Title to Top and Cards to Row 2 */
+    display: grid;
+    grid-template-columns: repeat(20, auto); 
+    grid-template-rows: auto auto; 
+    
+    overflow-x: auto;
     scroll-behavior: smooth;
-    box-sizing: border-box;
 }
 
-/* Hide the main horizontal scrollbar for a clean "app" look */
+/* Hide the horizontal scrollbar */
 .section_three::-webkit-scrollbar {
     display: none;
 }
 
-/* TOP SIDE: The Title (Pinned so it doesn't move when cards slide) */
 .events {
-    width: 100%;
+    grid-row: 1;
+    grid-column: 1 / -1; /* Spans across all cards to stay centered */
     text-align: center;
     margin-bottom: 50px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    
     position: sticky;
-    left: 0; 
-    flex-shrink: 0; /* Prevents the title from squishing */
-}
-
-.events h1 {
-    font-size: clamp(3rem, 8vw, 4.5rem);
-    line-height: 1.1;
-    margin: 0;
+    left: 0; /* Keeps the title centered in the viewport while scrolling */
 }
 
 .events h1 span {
@@ -229,65 +172,68 @@ h2 {
     background-color: rgba(117, 129, 58, 0.8);
 }
 
-/* BOTTOM SIDE: The Horizontal Cards */
 .event-item {
-    flex: 0 0 400px; /* Forces cards to stay wide and horizontal */
+    grid-row: 2;
+    flex: 0 0 400px;
+    width: 400px; /* Fixed width for slider logic */
     margin: 0 20px;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
     background-color: #75813A;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    
     min-height: 380px;
     max-height: 450px;
-    /* This is the internal scroll if text is too long */
-    overflow-y: auto; 
-    transition: all 0.3s ease;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Centers the first card under the title */
+/* Spacer to center the first card on load */
 .event-item:first-of-type {
-    margin-left: calc(50vw - 200px); 
+    margin-left: calc(50vw - 200px);
 }
 
-/* Buffer so the last card doesn't hit the edge */
+/* Spacer for the end of the list */
 .event-item:last-of-type {
-    margin-right: calc(50vw - 200px);
+    margin-right: 250px;
 }
 
 .event-item:hover {
-    background-color: #849148;
     transform: translateY(-10px);
+    background-color: #646e31;
 }
 
-/* The Wider Pill Arrow Button */
-.scroll-arrow {
-    position: sticky; /* Pins it to the right of the screen */
-    right: 50px;
-    left: calc(100vw - 170px);
-    
-    /* Moves it vertically to the center of the card row */
-    margin-top: -250px; 
-    z-index: 100;
+.event-item h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
-    width: 120px; 
-    height: 60px;
+.event-item ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* The Wider Pill-Shaped Arrow */
+.scroll-arrow {
+    position: sticky;
+    right: 50px;
+    /* This calculation keeps the arrow on the right side of the screen */
+    left: calc(100vw - 180px); 
+    grid-row: 2;
+    align-self: center;
+    
+    width: 130px; 
+    height: 65px;
     background-color: #FFF2E1;
     color: #5A632C;
-    
-    border-radius: 40px;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     cursor: pointer;
     font-size: 32px;
     font-weight: bold;
+    z-index: 100;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
@@ -296,155 +242,79 @@ h2 {
     background-color: #C36D2B;
     color: white;
 }
-/***** SECTION 4 *****/
+
+/***** SECTION 4: LEADERS *****/
 
 .section_four {
-    grid-row: 4;
-
     background-color: #133E57;
     color: #FFF2E1;
-
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    padding: 100px 20px;
 }
-
-.section_four h1 {
-    text-align: center;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-/* Leader card container */
-
-.leader-container {
-    display: flex;
-    justify-content: center;
-
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Leader information card */
 
 .leader-card {
     background-color: #FFF2E1;
     color: #133E57;
-
     padding: 60px 40px;
-
-    width: 100%;
+    width: 90%;
     max-width: 600px;
-
     text-align: center;
-
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
 .leader-card h2 {
     font-size: 36px;
-    margin-top: 0;
     color: #C36D2B;
     font-weight: 700;
-}
-
-.leader-card p {
-    font-size: 18px;
-    line-height: 1.8;
-    margin: 25px 0;
-}
-
-/* Contact area */
-
-.leader-contact {
-    font-weight: bold;
-    border-top: 1px solid rgba(19, 62, 87, 0.1);
-    padding-top: 30px;
-    margin-top: 30px;
 }
 
 .leader-card a {
     color: #C36D2B;
     text-decoration: none;
     font-size: 20px;
-    transition: color 0.3s;
 }
 
-.leader-card a:hover {
-    color: #133E57;
-    text-decoration: underline;
-}
-
-
-/***** SECTION 5 *****/
+/***** SECTION 5: FOOTER BANNER *****/
 
 .section_five {
     grid-row: 5;
-
     width: 100%;
-    height: 400px; /* Set a specific height for the footer banner */
-
+    height: 400px;
     overflow: hidden;
     position: relative;
 }
-
-/* Background banner image */
 
 .section_five img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
-
-/* Dark overlay to center the button */
 
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: rgba(0, 0, 0, 0.4); /* Slightly darker for better button contrast */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* "Learn More" button */
-
 .info-button {
-    display: inline-block;
-    cursor: pointer;
-
-    text-align: center;
-    text-decoration: none;
-
     padding: 18px 40px;
-
     background-color: rgba(255, 242, 225, 0.15);
     color: #FFF2E1;
-
     border: 2px solid #FFF2E1;
     border-radius: 50px;
-
+    text-decoration: none;
     font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
     backdrop-filter: blur(8px);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 .info-button:hover {
     background-color: #FFF2E1;
     color: #133E57;
-    transform: scale(1.05);
 }
