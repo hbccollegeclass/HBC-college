@@ -122,137 +122,73 @@ h2 {
     display: block;
 }
 
-/***** SECTION 3: THE FINAL FIXED SLIDER *****/
+/***** SECTION 3: THE PROFESSIONAL SLIDER *****/
 
 .section_three {
     grid-row: 3;
     background-color: #5A632C;
     color: #FFF2E1;
-    padding: 100px 0;
-    position: relative; /* Anchor for absolute Title and Arrow */
-    
+    padding: 80px 0;
+    position: relative;
     display: flex;
-    flex-direction: row; 
-    flex-wrap: nowrap;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Keeps everything contained */
+}
 
+.events {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* THE SLIDER: This is the only part that scrolls now */
+.event-slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
+    padding: 20px 50px 40px 50px; /* Padding for breathing room */
     box-sizing: border-box;
 }
 
-/* Hide Scrollbar */
-.section_three::-webkit-scrollbar {
+/* Hide scrollbar */
+.event-slider::-webkit-scrollbar {
     display: none;
 }
 
-/* TOP SIDE: The Title */
-.events {
-    /* Fixed to the section's top, ignoring the card scroll */
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-}
-
-/* IMPORTANT: Since the Title is now absolute, it won't move with scroll */
-/* We fix the centering issue by using width: 100% on a position: absolute */
-
-.events h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    line-height: 1;
-    margin: 0 auto;
-}
-
-.events h1 span {
-    position: relative;
-    z-index: 2;
-}
-
-.events h1 span::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 35%;
-    background-color: rgba(117, 129, 58, 0.8);
-    border-radius: 2px;
-}
-
-/* BOTTOM SIDE: The Cards */
 .event-item {
-    /* Push cards down so they clear the absolute title */
-    margin-top: 140px; 
-    
-    flex: 0 0 400px; 
-    width: 400px;
+    flex: 0 0 400px; /* Fixed width */
     margin-right: 30px;
-    
     background-color: #75813A;
-    padding: 35px;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    
-    min-height: 380px;
-    max-height: 450px;
-    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    min-height: 350px;
     transition: transform 0.3s ease;
 }
 
-/* Space on the left side of the first event */
-.event-item:first-of-type {
-    margin-left: 50px; 
-}
+.event-item:hover { transform: translateY(-10px); }
 
-/* Space on the right so last card doesn't hit the arrow */
-.event-item:last-of-type {
-    margin-right: 150px;
-}
-
-.event-item:hover {
-    transform: translateY(-10px);
-    background-color: #646e31;
-}
-
-.event-item h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-/* The Wider Pill-Shaped Arrow */
+/* THE ARROW: Pins perfectly to the right */
 .scroll-arrow {
-    /* Use Fixed to keep it pinned to the screen window */
-    position: fixed;
+    position: absolute;
     right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    
-    width: 110px; 
-    height: 60px;
+    top: 60%; /* Centered on the cards */
+    width: 100px;
+    height: 55px;
     background-color: #FFF2E1;
     color: #5A632C;
     border-radius: 50px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    
     cursor: pointer;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    z-index: 100;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: all 0.2s ease;
-}
-
-.scroll-arrow:hover {
-    background-color: #C36D2B;
-    color: white;
-    transform: translateY(-50%) scale(1.1);
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /***** SECTION 4: LEADERS *****/
