@@ -170,40 +170,37 @@ h2 {
 
 /***** SECTION 3 *****/
 
-/***** SECTION 3: Stacked Title + Wide Slider *****/
+/***** SECTION 3: Title Above + Horizontal Slider *****/
 
 .section_three {
     grid-row: 3;
     background-color: #5A632C;
     color: #FFF2E1;
 
-    /* Stack Title on top of the Scroll Area */
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-
+    /* Use Grid to create 2 rows: Top for Title, Bottom for Cards */
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr; 
+    
     padding: 80px 0;
     position: relative; 
-    
-    /* Hides horizontal scrollbar */
-    overflow-x: hidden; 
-    scroll-behavior: smooth;
-    box-sizing: border-box;
+    overflow: hidden; /* Keeps the arrow and cards inside the box */
 }
 
-/* TOP SIDE: The Title (Now centered at the top) */
+/* TOP ROW: The Title */
 .events {
+    grid-row: 1;
     width: 100%;
     text-align: center;
-    margin-bottom: 50px; /* Space between title and cards */
+    margin-bottom: 50px;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .events h1 {
     font-size: clamp(3rem, 8vw, 4.5rem);
     line-height: 1.1;
     margin: 0;
-    display: inline-block;
 }
 
 .events h1 span {
@@ -222,22 +219,24 @@ h2 {
     background-color: rgba(117, 129, 58, 0.8);
 }
 
-/* BOTTOM SIDE: The Card Container */
-/* We need a wrapper to hold the cards horizontally */
-/* Since we can't change HTML, we use the flex-direction: row 
-   on the scrollable items themselves */
-
+/* BOTTOM ROW: The Horizontal Card Area */
+/* This selector targets the "Event Slider" logic */
 .section_three {
-    /* Re-enabling horizontal flow for the children */
+    /* We override the display for the items to be a row */
     display: flex;
+    flex-direction: row; 
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 100%;
+    
+    scroll-behavior: smooth;
+    padding-bottom: 40px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .event-item {
-    flex: 0 0 400px; /* Made cards slightly wider for the new layout */
-    margin: 0 15px;
+    /* Each card is now a fixed wide block */
+    flex: 0 0 400px; 
+    margin: 0 20px;
     
     display: flex;
     flex-direction: column;
@@ -248,18 +247,20 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     
-    min-height: 380px;
+    min-height: 350px;
     max-height: 450px;
     overflow-y: auto; 
     transition: all 0.3s ease;
 }
 
-/* Spacing for the first and last cards so they don't hit the screen edges */
+/* Spacer for the first card to help centering */
 .event-item:first-of-type {
-    margin-left: 10%;
+    margin-left: calc(50% - 200px); 
 }
+
+/* Spacer for the last card so it doesn't hit the arrow */
 .event-item:last-of-type {
-    margin-right: 150px; 
+    margin-right: 200px;
 }
 
 .event-item:hover {
@@ -267,35 +268,34 @@ h2 {
     transform: translateY(-10px);
 }
 
-/* The Wider Clickable Arrow Button */
+/* The Wider Pill Arrow Button */
 .scroll-arrow {
     position: absolute; 
-    right: 30px;
-    bottom: 80px; /* Moved down to align with the cards */
+    right: 50px;
+    bottom: 150px; /* Positioned centered to the cards */
     
-    /* Wider, pill-shaped arrow button */
-    width: 100px; 
-    height: 50px;
+    width: 120px; 
+    height: 60px;
     background-color: #FFF2E1;
     color: #5A632C;
     
-    border-radius: 30px; /* Pill shape */
+    border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     
     cursor: pointer;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     z-index: 100;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
 
 .scroll-arrow:hover {
     background-color: #C36D2B;
     color: white;
-    width: 120px; /* Expands slightly on hover */
+    transform: scale(1.1);
 }
 
 /***** SECTION 4 *****/
