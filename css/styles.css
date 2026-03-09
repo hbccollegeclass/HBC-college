@@ -96,7 +96,7 @@ h2 {
         align-self: flex-end;
         width: 30%;
         margin-right: 10%;
-        border: 8px solid white; /* Matches your image style! */
+        border: 8px solid white;
         overflow: hidden;
         line-height: 0;
         margin-top: -280px;
@@ -104,8 +104,8 @@ h2 {
 }
 
 .map_container iframe {
-    width: 100%;    /* Makes the map fill the container width */
-    height: 400px;  /* You can adjust the height here */
+    width: 100%;
+    height: 400px;
     display: block;
 }
 
@@ -203,13 +203,13 @@ h2 {
     color: #FFF2E1;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Centering the container */
+    align-items: center;
     justify-content: center;
-    padding: 80px 0;        /* Gives it some breathing room top/bottom */
+    padding: 80px 0; 
 }
 
 .section_four h1 {
-    margin-left: 0;         /* Removed the 5% margin to keep it centered */
+    margin-left: 0;
     text-align: center;
     margin-bottom: 40px;
     width: 100%;
@@ -219,7 +219,7 @@ h2 {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1200px;      /* Keeps the overall container from getting too huge */
+    max-width: 1200px; 
 }
 
 .leader-card {
@@ -227,9 +227,8 @@ h2 {
     color: #133E57;
     padding: 50px;
 
-    /* THE FIX: Cap the width and center it */
-    width: 90%;             /* Responsive on medium screens */
-    max-width: 700px;       /* Stops it from getting too wide on desktop */
+    width: 90%; 
+    max-width: 700px; 
 
     text-align: center;
     border: 8px solid white;
@@ -240,7 +239,7 @@ h2 {
 .leader-card h2 {
     font-size: 32px;
     margin-top: 0;
-    color: #C36D2B;            /* Using your orange as an accent color */
+    color: #C36D2B;
 }
 
 .leader-card p {
@@ -282,20 +281,16 @@ h2 {
         object-fit: cover;
         display: block;
 }
-/* 2. Create the overlay to sit on top of the image */
-.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
-    /* 3. Center the button inside the overlay */
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* Optional: darkens the image slightly so the button stands out */
     background-color: rgba(0, 0, 0, 0.2);
 }
 
