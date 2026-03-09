@@ -131,7 +131,7 @@ h2 {
     padding: 100px 0;
     position: relative;
     
-    /* Flex layout allows cards to stay in one long horizontal line */
+    /* Forces cards to stay in one long horizontal line */
     display: flex;
     flex-direction: row; 
     flex-wrap: nowrap;
@@ -149,17 +149,20 @@ h2 {
 
 /* TOP SIDE: The Title */
 .events {
-    /* This forces the title to stay at the top and span the whole width */
-    position: absolute;
-    top: 40px;
+    /* STICKY is the fix: it stays in the center of the VISIBLE area */
+    position: sticky;
     left: 0;
-    width: 100%;
+    width: 100vw; 
     text-align: center;
+    
+    /* Moves the title to the top and ensures cards start below it */
+    margin-bottom: 50px;
+    flex-shrink: 0;
     z-index: 5;
 }
 
 .events h1 {
-    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     line-height: 1;
 }
 
@@ -181,13 +184,12 @@ h2 {
 
 /* BOTTOM SIDE: The Cards */
 .event-item {
-    /* Push cards down so they don't overlap the absolute title */
-    margin-top: 140px; 
+    /* Push cards down so they sit under the sticky title */
+    margin-top: 120px; 
     
-    flex: 0 0 400px; /* Force 400px width, no shrinking */
+    flex: 0 0 400px; 
     width: 400px;
     margin-right: 30px;
-    margin-left: 0;
     
     background-color: #75813A;
     padding: 35px;
@@ -200,14 +202,15 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-/* Spacer for the first card to center it */
+/* The first card's position */
 .event-item:first-of-type {
-    margin-left: calc(50vw - 200px);
+    /* This aligns the first card with the center of the title on load */
+    margin-left: 50px; 
 }
 
-/* Buffer for the end so it doesn't hit the arrow */
+/* Buffer for the end */
 .event-item:last-of-type {
-    margin-right: 300px;
+    margin-right: 200px;
 }
 
 .event-item:hover {
@@ -215,19 +218,19 @@ h2 {
     background-color: #646e31;
 }
 
-.event-item h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
 /* The Wider Pill-Shaped Arrow */
 .scroll-arrow {
-    position: fixed; /* Keeps it pinned to the screen */
-    right: 40px;
-    top: 60%; /* Positioned relative to the cards */
+    /* STICKY keeps the arrow pinned to the right side of the screen */
+    position: sticky;
+    right: 30px;
+    left: calc(100vw - 150px);
     
-    width: 120px; 
-    height: 60px;
+    /* Position it vertically in the middle of the card row */
+    align-self: center;
+    margin-top: 100px;
+
+    width: 110px; 
+    height: 55px;
     background-color: #FFF2E1;
     color: #5A632C;
     border-radius: 50px;
@@ -237,7 +240,7 @@ h2 {
     align-items: center;
     
     cursor: pointer;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     z-index: 100;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -247,8 +250,8 @@ h2 {
 .scroll-arrow:hover {
     background-color: #C36D2B;
     color: white;
-    transform: scale(1.1);
 }
+
 /***** SECTION 4: LEADERS *****/
 
 .section_four {
