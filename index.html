@@ -112,33 +112,26 @@
         </div>
 
 <script>
-    const eventSection = document.querySelector('.section_three');
+    // Target the specific slider wrapper, not the whole section
+    const slider = document.querySelector('.event-slider');
+    const arrow = document.querySelector('.scroll-arrow');
     
-    // 1. Check if arrow already exists to prevent duplicates
-    if (!document.querySelector('.scroll-arrow')) {
-        const arrow = document.createElement('div');
-        arrow.innerHTML = '→';
-        arrow.className = 'scroll-arrow';
-        
-        // 2. Add the arrow to the section
-        eventSection.appendChild(arrow);
-
-        // 3. Click logic
+    if (slider && arrow) {
         arrow.addEventListener('click', () => {
-            // Scroll by card width (400) + combined margins (40)
-            const scrollAmount = 440; 
+            // Scroll by card width (400) + gap (30)
+            const scrollAmount = 430; 
             
-            eventSection.scrollBy({
+            slider.scrollBy({
                 left: scrollAmount, 
                 behavior: 'smooth'
             });
             
-            // 4. Loop back to start if we reach the end
-            // We use a 150px buffer to detect the "end" of the scrollable area
-            const isAtEnd = eventSection.scrollLeft + eventSection.clientWidth >= eventSection.scrollWidth - 150;
+            // Loop back logic
+            // We check if the slider is near the end (within 100px)
+            const isAtEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 100;
             
             if (isAtEnd) {
-                eventSection.scrollTo({ 
+                slider.scrollTo({ 
                     left: 0, 
                     behavior: 'smooth' 
                 });
