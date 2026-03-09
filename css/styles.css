@@ -124,8 +124,6 @@ h2 {
 
 /***** SECTION 3: EVENT SLIDER (FIXED) *****/
 
-
-
 .section_three {
     grid-row: 3;
     background-color: #5A632C;
@@ -133,27 +131,31 @@ h2 {
     padding: 80px 0;
     position: relative;
     
-    /* Using Grid to force Title to Top and Cards to Row 2 */
-    display: grid;
-    grid-template-columns: repeat(20, auto); 
-    grid-template-rows: auto auto; 
-    
+    /* Changed from Grid to Flex Column to stack Title over Cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Allows the cards inside to scroll horizontally */
     overflow-x: auto;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
-/* Hide the horizontal scrollbar */
+/* Hide the horizontal scrollbar for a clean look */
 .section_three::-webkit-scrollbar {
     display: none;
 }
 
 .events {
-    grid-row: 1;
-    grid-column: 1 / -1; /* Spans across all cards to stay centered */
+    width: 100%;
     text-align: center;
     margin-bottom: 50px;
+    flex-shrink: 0; /* Prevents title from squishing */
+    
+    /* Keeps title centered in the window while cards scroll */
     position: sticky;
-    left: 0; /* Keeps the title centered in the viewport while scrolling */
+    left: 0; 
 }
 
 .events h1 span {
@@ -172,29 +174,33 @@ h2 {
     background-color: rgba(117, 129, 58, 0.8);
 }
 
+/* Container logic for the cards */
+/* We target the direct event items */
 .event-item {
-    grid-row: 2;
-    flex: 0 0 400px;
-    width: 400px; /* Fixed width for slider logic */
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px; /* Forces cards to stay 400px wide and not shrink */
     margin: 0 20px;
+    
     background-color: #75813A;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    
     min-height: 380px;
     max-height: 450px;
-    overflow-y: auto;
+    overflow-y: auto; /* Internal scroll if text is too long */
     transition: transform 0.3s ease;
 }
 
-/* Spacer to center the first card on load */
+/* Spacing to center the first card on load */
 .event-item:first-of-type {
     margin-left: calc(50vw - 200px);
 }
 
-/* Spacer for the end of the list */
+/* Buffer for the end of the list */
 .event-item:last-of-type {
-    margin-right: 250px;
+    margin-right: calc(50vw - 200px);
 }
 
 .event-item:hover {
@@ -217,11 +223,13 @@ h2 {
 .scroll-arrow {
     position: sticky;
     right: 50px;
-    /* This calculation keeps the arrow on the right side of the screen */
+    /* Pins it to the right of the screen viewport */
     left: calc(100vw - 180px); 
-    grid-row: 2;
-    align-self: center;
     
+    /* Pulls the arrow up so it centers vertically on the cards */
+    margin-top: -250px; 
+    z-index: 100;
+
     width: 130px; 
     height: 65px;
     background-color: #FFF2E1;
@@ -233,7 +241,6 @@ h2 {
     cursor: pointer;
     font-size: 32px;
     font-weight: bold;
-    z-index: 100;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
