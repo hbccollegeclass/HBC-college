@@ -122,40 +122,45 @@ h2 {
     display: block;
 }
 
-/***** SECTION 3: EVENT SLIDER (FIXED) *****/
+/***** SECTION 3: THE FINAL FIXED SLIDER *****/
 
 .section_three {
     grid-row: 3;
     background-color: #5A632C;
     color: #FFF2E1;
-    padding: 80px 0;
+    padding: 100px 0;
     position: relative;
     
-    /* Changed from Grid to Flex Column to stack Title over Cards */
+    /* Flex layout allows cards to stay in one long horizontal line */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; 
+    flex-wrap: nowrap;
+    align-items: flex-start;
 
-    /* Allows the cards inside to scroll horizontally */
     overflow-x: auto;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
 
-/* Hide the horizontal scrollbar for a clean look */
+/* Hide Scrollbar */
 .section_three::-webkit-scrollbar {
     display: none;
 }
 
+/* TOP SIDE: The Title */
 .events {
+    /* This forces the title to stay at the top and span the whole width */
+    position: absolute;
+    top: 40px;
+    left: 0;
     width: 100%;
     text-align: center;
-    margin-bottom: 50px;
-    flex-shrink: 0; /* Prevents title from squishing */
-    
-    /* Keeps title centered in the window while cards scroll */
-    position: sticky;
-    left: 0; 
+    z-index: 5;
+}
+
+.events h1 {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    line-height: 1;
 }
 
 .events h1 span {
@@ -174,13 +179,15 @@ h2 {
     background-color: rgba(117, 129, 58, 0.8);
 }
 
-/* Container logic for the cards */
-/* We target the direct event items */
+/* BOTTOM SIDE: The Cards */
 .event-item {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 400px; /* Forces cards to stay 400px wide and not shrink */
-    margin: 0 20px;
+    /* Push cards down so they don't overlap the absolute title */
+    margin-top: 140px; 
+    
+    flex: 0 0 400px; /* Force 400px width, no shrinking */
+    width: 400px;
+    margin-right: 30px;
+    margin-left: 0;
     
     background-color: #75813A;
     padding: 35px;
@@ -189,18 +196,18 @@ h2 {
     
     min-height: 380px;
     max-height: 450px;
-    overflow-y: auto; /* Internal scroll if text is too long */
+    overflow-y: auto;
     transition: transform 0.3s ease;
 }
 
-/* Spacing to center the first card on load */
+/* Spacer for the first card to center it */
 .event-item:first-of-type {
     margin-left: calc(50vw - 200px);
 }
 
-/* Buffer for the end of the list */
+/* Buffer for the end so it doesn't hit the arrow */
 .event-item:last-of-type {
-    margin-right: calc(50vw - 200px);
+    margin-right: 300px;
 }
 
 .event-item:hover {
@@ -211,36 +218,28 @@ h2 {
 .event-item h2 {
     font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.event-item ul {
-    margin: 0;
-    padding-left: 20px;
 }
 
 /* The Wider Pill-Shaped Arrow */
 .scroll-arrow {
-    position: sticky;
-    right: 50px;
-    /* Pins it to the right of the screen viewport */
-    left: calc(100vw - 180px); 
+    position: fixed; /* Keeps it pinned to the screen */
+    right: 40px;
+    top: 60%; /* Positioned relative to the cards */
     
-    /* Pulls the arrow up so it centers vertically on the cards */
-    margin-top: -250px; 
-    z-index: 100;
-
-    width: 130px; 
-    height: 65px;
+    width: 120px; 
+    height: 60px;
     background-color: #FFF2E1;
     color: #5A632C;
     border-radius: 50px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
     cursor: pointer;
     font-size: 32px;
     font-weight: bold;
+    z-index: 100;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
@@ -248,8 +247,8 @@ h2 {
 .scroll-arrow:hover {
     background-color: #C36D2B;
     color: white;
+    transform: scale(1.1);
 }
-
 /***** SECTION 4: LEADERS *****/
 
 .section_four {
