@@ -175,69 +175,42 @@ h2 {
     background-color: #5A632C;
     color: #FFF2E1;
 
-    /* Layout: Flex-wrap allows the title to stay on top, cards below */
-    display: flex;
-    flex-direction: row; 
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
+    /* Create a horizontal layout */
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap; /* Keep everything in one line */
+    align-items: flex-start;
 
-    padding: 80px 5%; 
-    gap: 30px;
-    box-sizing: border-box;
-
-    /* Enable Horizontal Scroll */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    padding: 80px 0; /* Vertical space */
+    gap: 0;          /* We handle spacing inside the containers */
     
-    /* Custom Scrollbar Styling */
-    scrollbar-width: thin;
-    scrollbar-color: #75813A rgba(255, 252, 225, 0.1);
-}
-
-/* Chrome, Edge, and Safari Scrollbar */
-.section_three::-webkit-scrollbar {
-    height: 8px;
-}
-.section_three::-webkit-scrollbar-track {
-    background: rgba(255, 252, 225, 0.1);
-    border-radius: 10px;
-}
-.section_three::-webkit-scrollbar-thumb {
-    background: #75813A;
-    border-radius: 10px;
-}
-
-.section_three h2 {
-    padding-left: 0;
+    /* Enable the "Snap" feel (Like an arrow moved it) */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    
+    box-sizing: border-box;
 }
 
 /* "Upcoming Events" title */
 
 .events {
-    flex: 0 0 auto; 
-    margin-right: 20px;
-    position: sticky;
+    flex: 0 0 350px;    /* Title column is exactly 350px wide */
+    position: sticky;   /* This is the magic: it stays on the left */
     left: 0;
     z-index: 10;
-    background-color: #5A632C;
-    padding-right: 20px;
+    
+    background-color: #5A632C; /* Matches section bg to hide cards behind it */
+    padding: 0 40px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .events h1 {
-    position: relative;
-    z-index: 1;
-    margin: 5px 0;
-    font-size: 3rem;
-    line-height: 1.1;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin: 0;
 }
-
-.events h1 span {
-    position: relative;
-    z-index: 2;
-}
-
-/* Highlight background behind words */
 
 .events h1 span::before {
     content: "";
@@ -246,9 +219,8 @@ h2 {
     bottom: 2px;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 35%;
     background-color: rgba(117, 129, 58, 0.8);
-    border-radius: 2px;
 }
 
 /* Removed hard indent for second word to improve centering */
@@ -259,28 +231,28 @@ h2 {
 /* Individual event cards */
 
 .event-item {
-    flex: 0 0 350px; /* Force each card to be exactly 350px wide */
+    flex: 0 0 350px;      /* Each card is 350px wide */
+    margin-right: 30px;   /* Space between cards */
+    scroll-snap-align: start; /* Locks card to the edge of the title column */
+    
     display: flex;
     flex-direction: column;
-    gap: 15px;
     background-color: #75813A;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     
-    /* Smooth hover effect */
-    transition: all 0.3s ease;
-    cursor: default;
-    
-    /* Handle long text inside cards */
-    max-height: 400px;
+    /* Heights and Scrolling for long text */
+    min-height: 380px;
+    max-height: 450px;
     overflow-y: auto;
+    
+    transition: all 0.3s ease;
 }
 
 .event-item:hover {
     background-color: #849148;
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 .event-item h2 {
@@ -296,6 +268,25 @@ h2 {
     font-size: 0.95rem;
 }
 
+.section_three::after {
+    content: "Scroll for more →";
+    position: sticky;
+    right: 20px;
+    bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 242, 225, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section_three::-webkit-scrollbar {
+    height: 8px;
+}
+.section_three::-webkit-scrollbar-thumb {
+    background: #75813A;
+    border-radius: 10px;
+}
 
 /***** SECTION 4 *****/
 
