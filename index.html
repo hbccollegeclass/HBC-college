@@ -112,28 +112,24 @@
         </div>
 
 <script>
-    // Target the specific slider wrapper, not the whole section
+    // Target the slider and the arrow that is ALREADY in your HTML
     const slider = document.querySelector('.event-slider');
     const arrow = document.querySelector('.scroll-arrow');
-    
+
     if (slider && arrow) {
         arrow.addEventListener('click', () => {
-            // Scroll by card width (400) + gap (30)
-            const scrollAmount = 430; 
-            
+            // Move by the width of one card + margin
             slider.scrollBy({
-                left: scrollAmount, 
+                left: 430, 
                 behavior: 'smooth'
             });
-            
-            // Loop back logic
-            // We check if the slider is near the end (within 100px)
-            const isAtEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 100;
-            
-            if (isAtEnd) {
-                slider.scrollTo({ 
-                    left: 0, 
-                    behavior: 'smooth' 
+
+            // If we are at the end, loop back to the start
+            // We use a 100px buffer to check if we're at the end
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 100) {
+                slider.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
                 });
             }
         });
