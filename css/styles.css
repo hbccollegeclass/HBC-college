@@ -1,106 +1,131 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body { /* The body is the entire grid */
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 60vh 40vh 30vh 45vh 45vh;
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
+/******** GLOBAL STYLES ********/
+
+body {
+    /* Main page layout using CSS Grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 40vh 30vh 45vh 45vh;
+
+    font-family: 'Roboto', sans-serif;
+
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-        font-size: 60px;
-        letter-spacing: -1px;
-        font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    letter-spacing: -1px;
+    font-family: 'Roboto', sans-serif;
 }
 
 h2 {
-        line-height: 30px;
-        font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
-/********** SECTIONS **********/
+/******** SECTIONS ********/
 
-.section_one, .section_two, .section_three{
-        display: flex;
-        flex-direction: column;
-
-        justify-content: flex-start;
-
-        width: 100%;
+/* Base layout for the first three sections */
+.section_one,
+.section_two,
+.section_three {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
 }
 
-.section_two h1, .section_three h1 {
-        font-size: 60px;
+.section_two h1,
+.section_three h1 {
+    font-size: 60px;
 }
 
 
 /***** SECTION 1 *****/
 
-.title h1 {
-        color: #133E57;
-        text-align: center;
-        font-size: 100px;
+.section_one {
+    grid-row: 1;
+    background-color: #FFF2E1;
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 40px;
 }
+
+/* Main page title */
+
+.title h1 {
+    color: #133E57;
+    text-align: center;
+    font-size: 100px;
+}
+
+/* Image row below the title */
 
 .image_container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
+
     width: 100%;
     margin-top: 20px;
 }
 
 .image_container img {
-        width: 400px;
-        height: auto;
-        object-fit: cover;
-        border: 8px solid white;
-        border-color: white;
-        box-shadow: 0 10px 30px #504B43;
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+
+    border: 8px solid white;
+    box-shadow: 0 10px 30px #504B43;
 }
+
+/* Special crop for middle image */
 
 .first_image {
-        height: 300px;
-        object-fit: cover;
-        object-position: 35% center;
+    height: 300px;
+    object-fit: cover;
+    object-position: 35% center;
 }
 
-
-.section_one {
-        grid-row: 1;
-        background-color: #FFF2E1;
-        overflow-x: hidden;
-        width: 100%;
-        padding-top: 40px;
-}
 
 /***** SECTION 2 *****/
 
 .section_two {
-        grid-row: 2;
-        background-color: #C36D2B;
-        color: #FFF2E1;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    grid-row: 2;
+
+    background-color: #C36D2B;
+    color: #FFF2E1;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
+
+/* Meeting time text */
 
 .section_two h2 {
-        margin-left: 310px;
+    margin-left: 310px;
 }
 
+/* Google Map container */
+
 .map_container {
-        align-self: flex-end;
-        width: 30%;
-        margin-right: 10%;
-        border: 8px solid white;
-        overflow: hidden;
-        line-height: 0;
-        margin-top: -280px;
-        margin-bottom: 80px;
+    align-self: flex-end;
+
+    width: 30%;
+    margin-right: 10%;
+
+    border: 8px solid white;
+
+    overflow: hidden;
+    line-height: 0;
+
+    margin-top: -280px;
+    margin-bottom: 80px;
 }
 
 .map_container iframe {
@@ -109,128 +134,151 @@ h2 {
     display: block;
 }
 
+/* Section title spacing */
+
 .sub-title {
-        margin-top: 110px;
+    margin-top: 110px;
 }
 
 .sub-title h1 {
-        text-align: left;
-        margin-left: 300px;
+    text-align: left;
+    margin-left: 300px;
 }
+
 
 /***** SECTION 3 *****/
 
 .section_three {
-        grid-row: 3;
-        background-color: #5A632C;
-        color: #FFF2E1;
+    grid-row: 3;
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 50px;
-        padding: 40px 0;
+    background-color: #5A632C;
+    color: #FFF2E1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 50px;
+    padding: 40px 0;
 }
 
 .section_three h2 {
-        padding-left: 80px;
+    padding-left: 80px;
 }
 
+/* "Upcoming Events" title */
+
 .events {
-        padding-left: 100px;
+    padding-left: 100px;
 }
 
 .events h1 {
-        position: relative;
-        z-index: 1;
-        margin: 10px 0;
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
 }
 
 .events h1 span {
-        position: relative;
-        z-index: 2;
+    position: relative;
+    z-index: 2;
 }
+
+/* Highlight background behind words */
 
 .events h1 span::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
+    content: "";
+    position: absolute;
+    z-index: -1;
 
-        bottom: -5px;
-        right: -15px;
+    bottom: -5px;
+    right: -15px;
 
-        width: 100%;
-        height: 70%;
+    width: 100%;
+    height: 70%;
 
-        background-color: #75813A;
-        border-radius: 2px;
+    background-color: #75813A;
+    border-radius: 2px;
 }
+
+/* Indent second word */
 
 .events h1:nth-child(2) {
-        padding-left: 90px;
+    padding-left: 90px;
 }
 
+/* Individual event cards */
+
 .event-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-        background-color:#75813A;
-        padding: 30px;
-        width: 300px;
-        min-height: 200px;
+    gap: 15px;
 
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background-color: #75813A;
+
+    padding: 30px;
+    width: 300px;
+    min-height: 200px;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .event-item h2 {
-        padding-left: 0 !important;
-        font-size: 1.2rrem;
-        color: #FFF2E1;
-        opacity: 0.9;
+    padding-left: 0 !important;
+    font-size: 1.2rem;
+    color: #FFF2E1;
+    opacity: 0.9;
 }
 
 
 /***** SECTION 4 *****/
 
-
 .section_four {
     grid-row: 4;
+
     background-color: #133E57;
     color: #FFF2E1;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 80px 0; 
+
+    padding: 80px 0;
 }
 
 .section_four h1 {
-    margin-left: 0;
     text-align: center;
     margin-bottom: 40px;
     width: 100%;
 }
 
+/* Leader card container */
+
 .leader-container {
     display: flex;
     justify-content: center;
+
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
 }
+
+/* Leader information card */
 
 .leader-card {
     background-color: #FFF2E1;
     color: #133E57;
+
     padding: 50px;
 
-    width: 90%; 
-    max-width: 700px; 
+    width: 90%;
+    max-width: 700px;
 
     text-align: center;
+
     border: 8px solid white;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     border-radius: 4px;
@@ -247,6 +295,8 @@ h2 {
     line-height: 1.6;
     margin: 20px 0;
 }
+
+/* Contact area */
 
 .leader-contact {
     font-weight: bold;
@@ -265,25 +315,36 @@ h2 {
     text-decoration: underline;
     opacity: 0.8;
 }
+
+
 /***** SECTION 5 *****/
 
 .section_five {
-        grid-row: 5;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
+    grid-row: 5;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    position: relative;
 }
 
+/* Background banner image */
+
 .section_five img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
+
+/* Dark overlay to center the button */
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
 
@@ -294,20 +355,26 @@ h2 {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+/* "Learn More" button */
+
 .info-button {
     display: inline-block;
     cursor: pointer;
+
     text-align: center;
     text-decoration: none;
 
-    /* 4. Add the styles to make it look like a button */
     padding: 15px 30px;
+
     background-color: rgba(255, 242, 225, 0.2);
     color: #FFF2E1;
+
     border: 2px solid #FFF2E1;
     border-radius: 50px;
+
     font-weight: bold;
-    backdrop-filter: blur(5px); /* Modern glass effect */
+
+    backdrop-filter: blur(5px);
     transition: all 0.3s ease;
 }
 
