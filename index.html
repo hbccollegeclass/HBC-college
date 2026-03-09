@@ -107,5 +107,31 @@
                         </a>
                 </div>
         </div>
+
+<script>
+    // 1. Create the arrow element
+    const arrow = document.createElement('div');
+    arrow.innerHTML = '→';
+    arrow.className = 'scroll-arrow';
+    
+    // 2. Add it to the section
+    const eventSection = document.querySelector('.section_three');
+    eventSection.appendChild(arrow);
+    
+    // 3. Make it work
+    arrow.addEventListener('click', () => {
+        // Move the scroll position by the width of one card + margin
+        eventSection.scrollBy({
+            left: 380, 
+            behavior: 'smooth'
+        });
+        
+        // Loop back to start if we reach the end
+        if (eventSection.scrollLeft + eventSection.clientWidth >= eventSection.scrollWidth - 10) {
+            eventSection.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+    });
+</script>
+        
 </body>
 </html>
