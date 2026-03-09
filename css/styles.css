@@ -108,24 +108,23 @@ h2 {
 /* Meeting time text */
 
 .section_two h2 {
-    margin-left: 310px;
+    text-align: center;
+    margin-left: 0;
 }
 
 /* Google Map container */
 
 .map_container {
-    align-self: flex-end;
+    align-self: center;
 
-    width: 30%;
-    margin-right: 10%;
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
 
     border: 8px solid white;
 
     overflow: hidden;
     line-height: 0;
-
-    margin-top: -280px;
-    margin-bottom: 80px;
 }
 
 .map_container iframe {
@@ -141,8 +140,8 @@ h2 {
 }
 
 .sub-title h1 {
-    text-align: left;
-    margin-left: 300px;
+    text-align: center;
+    margin-left: 0;
 }
 
 
