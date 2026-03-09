@@ -177,24 +177,35 @@ h2 {
     background-color: #5A632C;
     color: #FFF2E1;
 
-    /* Use Grid to create 2 rows: Top for Title, Bottom for Cards */
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto 1fr; 
+    /* Turn the section into a column to stack Title over Cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     padding: 80px 0;
-    position: relative; 
-    overflow: hidden; /* Keeps the arrow and cards inside the box */
+    position: relative; /* This keeps the arrow locked to the section */
+    
+    /* This allows the cards to scroll but keeps the title still */
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
-/* TOP ROW: The Title */
+/* Hide the scrollbar for a clean look */
+.section_three::-webkit-scrollbar {
+    display: none;
+}
+
+/* TOP SIDE: The Title (Stacks on top because of flex-direction: column) */
 .events {
-    grid-row: 1;
     width: 100%;
     text-align: center;
     margin-bottom: 50px;
     padding: 0 20px;
     box-sizing: border-box;
+    /* Pushes title to the top and keeps it from moving left/right */
+    position: sticky;
+    left: 0; 
 }
 
 .events h1 {
@@ -219,23 +230,9 @@ h2 {
     background-color: rgba(117, 129, 58, 0.8);
 }
 
-/* BOTTOM ROW: The Horizontal Card Area */
-/* This selector targets the "Event Slider" logic */
-.section_three {
-    /* We override the display for the items to be a row */
-    display: flex;
-    flex-direction: row; 
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    
-    scroll-behavior: smooth;
-    padding-bottom: 40px;
-    -webkit-overflow-scrolling: touch;
-}
-
+/* BOTTOM SIDE: The Horizontal Cards */
 .event-item {
-    /* Each card is now a fixed wide block */
-    flex: 0 0 400px; 
+    flex: 0 0 400px; /* Cards stay 400px wide */
     margin: 0 20px;
     
     display: flex;
@@ -253,14 +250,14 @@ h2 {
     transition: all 0.3s ease;
 }
 
-/* Spacer for the first card to help centering */
+/* Centering the start of the slider */
 .event-item:first-of-type {
     margin-left: calc(50% - 200px); 
 }
 
-/* Spacer for the last card so it doesn't hit the arrow */
+/* Buffer for the end of the slider */
 .event-item:last-of-type {
-    margin-right: 200px;
+    margin-right: calc(50% - 200px);
 }
 
 .event-item:hover {
@@ -268,12 +265,15 @@ h2 {
     transform: translateY(-10px);
 }
 
-/* The Wider Pill Arrow Button */
+/* The Wider Pill Arrow Button - Now Pinned to the right */
 .scroll-arrow {
-    position: absolute; 
-    right: 50px;
-    bottom: 150px; /* Positioned centered to the cards */
+    position: sticky; /* Sticky ensures it stays at the right edge while you scroll */
+    right: 50px;      /* Distance from right edge */
+    left: calc(100vw - 170px); /* Keeps it on the right side of the screen */
     
+    margin-top: -100px; /* Pulls it up to sit on top of the card area */
+    align-self: flex-end;
+
     width: 120px; 
     height: 60px;
     background-color: #FFF2E1;
@@ -297,7 +297,6 @@ h2 {
     color: white;
     transform: scale(1.1);
 }
-
 /***** SECTION 4 *****/
 
 .section_four {
