@@ -183,22 +183,24 @@ h2 {
     align-items: flex-start;
 
     padding: 80px 0;
-    position: relative; /* Keeps the arrow inside this section */
+    position: relative; 
     
-    /* Hides scrollbar for the "Slider" look */
+    /* Hides scrollbar */
     overflow-x: hidden; 
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
 
-/* LEFT SIDE: The Title (Fixed position on left) */
+/* LEFT SIDE: The Title (Pinned to the left) */
 .events {
     flex: 0 0 350px;
     position: sticky;
     left: 0;
     z-index: 10;
-    background-color: #5A632C;
+    background-color: #5A632C; /* Matches section bg to hide cards behind it */
     padding: 0 40px;
+    /* This ensures cards don't "peek" through the left side */
+    box-shadow: 10px 0 15px -5px rgba(0,0,0,0.1); 
 }
 
 .events h1 {
@@ -207,7 +209,6 @@ h2 {
     margin: 0;
 }
 
-/* Highlight behind the word "Upcoming" or "Events" */
 .events h1 span {
     position: relative;
     z-index: 2;
@@ -240,8 +241,13 @@ h2 {
     
     min-height: 380px;
     max-height: 450px;
-    overflow-y: auto; /* Scroll inside the card if text is too long */
+    overflow-y: auto; 
     transition: all 0.3s ease;
+}
+
+/* Ensure the cards have space to breathe on the far right */
+.event-item:last-child {
+    margin-right: 100px; 
 }
 
 .event-item:hover {
@@ -264,10 +270,14 @@ h2 {
 
 /* The Clickable Arrow Button */
 .scroll-arrow {
-    position: absolute; /* Keeps arrow inside Section 3 */
-    right: 40px;
+    position: sticky; /* CHANGED: Sticky pins it to the screen viewport */
+    right: 40px;      /* Distances it from the right edge */
+    left: auto;       /* Ensures it only sticks to the right */
     top: 50%;
     transform: translateY(-50%);
+    
+    /* Offset the flexbox flow so the arrow doesn't push the cards */
+    margin-left: -80px; 
     
     width: 60px;
     height: 60px;
