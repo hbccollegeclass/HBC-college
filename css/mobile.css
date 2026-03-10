@@ -1,5 +1,6 @@
 /********** MOBILE STYLES **********/
 
+/* 1. RESET THE FOUNDATION */
 html, body {
     width: 100% !important;
     margin: 0 !important;
@@ -8,109 +9,113 @@ html, body {
     display: block !important; 
 }
 
-/* 1. BALANCED SECTION SPACING */
-.section_one, .section_two, .section_three, .section_four {
+/* 2. UNIVERSAL SECTION TWEAKS */
+.section_one,
+.section_two,
+.section_three,
+.section_four {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; 
-    justify-content: flex-start !important;
+    align-items: center !important; /* Force centers everything */
     width: 100% !important;
-    padding: 40px 20px !important; 
+    padding: 30px 15px !important; /* Reduced from 80px/100px */
     box-sizing: border-box !important;
+    height: auto !important;
+    min-height: 0 !important; 
+    margin: 0 !important;
 }
 
 /***** SECTION 1 MOBILE *****/
 .title h1 {
-    font-size: 30px !important;
+    font-size: 28px !important;
     text-align: center !important;
+    margin-bottom: 15px !important;
 }
 
 .image_container img {
     width: 100% !important;
-    height: 250px !important; /* Restored as requested */
+    height: 250px !important; /* Fixed height so they aren't "too short" */
     margin-bottom: 15px !important;
 }
 
-/***** SECTION 2 MOBILE (VISIT - FIXED CENTERING) *****/
+/***** SECTION 2 MOBILE (VISIT) *****/
 .section_two {
-    text-align: center !important;
-    align-items: center !important;
+    padding: 40px 15px !important; /* Overrides desktop 100px 5% */
+    gap: 20px !important;
 }
 
 .sub-title {
+    max-width: 100% !important;
+    text-align: center !important;
     margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
+}
+
+.sub-title h1 {
+    font-size: 32px !important;
+    margin-bottom: 10px !important;
     text-align: center !important;
 }
 
-.sub-title h1, .section_two h2 {
-    margin-left: 0 !important; /* Removes desktop indents */
-    margin-right: 0 !important;
+.section_two h2 {
+    font-size: 1.1rem !important;
+    margin: 5px 0 !important;
     text-align: center !important;
-    width: 100% !important;
 }
 
 .map_container {
     width: 100% !important;
     max-width: 100% !important;
-    height: 250px !important; 
-    margin: 20px 0 0 0 !important;
+    margin: 0 !important;
+    height: 280px !important; /* Balanced height */
 }
 
-/***** SECTION 3 MOBILE (SHORTENED EVENT ITEMS) *****/
+/***** SECTION 3 MOBILE (SLIDER) *****/
 .section_three {
-    padding: 40px 0 !important; 
+    padding: 40px 0 !important;
 }
 
 .event-slider {
-    padding: 0 20px 20px 20px !important;
+    padding: 0 15px 20px 15px !important;
+    display: flex !important;
 }
 
 .event-item {
-    flex: 0 0 85% !important;
+    flex: 0 0 85% !important; /* Standard mobile width */
     margin-right: 15px !important;
     
-    /* SHORTER FIXES START HERE */
-    min-height: 120px !important; /* Very short minimum */
-    max-height: 280px !important; /* Caps the height */
-    padding: 15px 20px !important; /* Tightens the internal space */
-    margin-top: 10px !important;  /* Brings it closer to the title */
+    /* FORCE SHRINKING HEIGHTS */
+    min-height: 0 !important;     /* Overrides desktop 350px */
+    height: auto !important;      /* Overrides any fixed height */
+    max-height: 300px !important; /* Hard cap to stop it being "too tall" */
     
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important; /* Centers text vertically in the shorter box */
+    padding: 20px !important;     /* Smaller internal space */
 }
 
-.event-item h2 { 
-    font-size: 1.1rem !important; 
-    margin-bottom: 5px !important; 
-}
+.event-item h2 { font-size: 1.2rem !important; }
+.event-item ul { font-size: 0.95rem !important; }
 
-.event-item ul { 
-    font-size: 0.9rem !important; 
-    padding-left: 15px !important; 
-}
-
+/* ARROW FIX */
 .scroll-arrow {
     display: flex !important;
-    right: 15px !important;
+    position: absolute !important;
+    right: 10px !important;
     top: 65% !important;
     width: 50px !important;
-    height: 40px !important;
+    height: 45px !important;
     z-index: 1000 !important;
 }
 
-/***** SECTION 4 MOBILE (COMPACT LEADERS) *****/
+/***** SECTION 4 MOBILE (LEADER) *****/
 .leader-card {
+    padding: 30px 20px !important; /* Smaller box */
     width: 100% !important;
-    padding: 20px !important; /* Shorter white box */
     margin: 0 !important;
+    height: auto !important;
 }
 
-.leader-card h2 { font-size: 24px !important; }
+.leader-card h2 { font-size: 26px !important; }
 
 /***** SECTION 5 MOBILE *****/
 .section_five {
-    height: 250px !important;
+    height: 280px !important;
 }
