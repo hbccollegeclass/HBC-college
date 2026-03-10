@@ -1,124 +1,140 @@
 /********** MOBILE STYLES **********/
 
-/* 1. PREVENT OVERFLOW */
 html, body {
-    width: 100vw !important;
+    width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden; 
     display: block !important; 
 }
 
-/* 2. SHRINK SECTION HEIGHTS & PADDING */
-.section_one,
-.section_two,
-.section_three,
-.section_four {
+/* 1. BALANCED SECTION SPACING */
+.section_one, .section_two, .section_three, .section_four {
     display: flex !important;
     flex-direction: column !important;
+    align-items: center !important; /* Forces horizontal centering */
+    justify-content: flex-start !important;
     width: 100% !important;
-    padding: 30px 15px !important; /* Heavily reduced vertical padding */
+    padding: 50px 20px !important; /* Back to a comfortable middle-ground */
     box-sizing: border-box !important;
-    margin: 0 !important; 
-    grid-row: auto !important;
-    height: auto !important; /* Stop sections from being forced tall */
+    height: auto !important;
 }
 
 /***** SECTION 1 MOBILE *****/
 .title h1 {
-    font-size: 26px !important;
+    font-size: 30px !important;
     text-align: center !important;
+}
+
+.image_container {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 .image_container img {
     width: 100% !important;
-    height: 180px !important; /* Shorter images */
-    margin: 0 0 10px 0 !important;
+    height: 250px !important; /* Restored height so they don't look squashed */
+    margin-bottom: 15px !important;
 }
 
-/***** SECTION 2 MOBILE (VISIT FIX) *****/
+/***** SECTION 2 MOBILE (VISIT - CENTERED) *****/
 .section_two {
-    gap: 15px !important;
-    align-items: center !important;
-    justify-content: center !important;
+    text-align: center !important;
 }
 
-/* Force-reset the "sub-title" which is causing the shift */
 .sub-title {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
     text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 .sub-title h1 {
-    font-size: 28px !important;
-    margin: 0 0 10px 0 !important;
+    font-size: 32px !important;
+    margin-left: 0 !important; /* Removes desktop push */
     text-align: center !important;
 }
 
 .section_two h2 {
-    font-size: 1rem !important;
-    margin: 5px 0 !important;
+    font-size: 1.1rem !important;
+    margin: 8px 0 !important;
     text-align: center !important;
-    width: 100% !important;
 }
 
 .map_container {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 15px 0 0 0 !important;
+    height: 280px !important; /* Capped height */
+    margin: 20px 0 0 0 !important;
 }
 
 .map_container iframe {
-    height: 220px !important; /* Shorter map */
+    height: 100% !important;
+    width: 100% !important;
 }
 
-/***** SECTION 3 MOBILE (SLIDER FIX) *****/
+/***** SECTION 3 MOBILE (SLIDER) *****/
 .section_three {
-    padding: 30px 0 !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .event-slider {
-    padding: 10px 15px !important;
-    margin-top: 10px !important;
+    padding: 0 20px 20px 20px !important;
 }
 
 .event-item {
-    flex: 0 0 80% !important; 
+    flex: 0 0 85% !important;
     margin-right: 15px !important;
-    /* REDUCED HEIGHTS */
-    min-height: 150px !important; 
-    height: auto !important; 
-    padding: 20px !important;
+    min-height: 200px !important; 
+    max-height: 350px !important; /* Stops it from being "too big" */
+    padding: 25px !important;
 }
 
-.event-item h2 { font-size: 1.1rem !important; }
-.event-item ul { font-size: 0.9rem !important; }
-
-/* SMALLER ARROW */
 .scroll-arrow {
     display: flex !important;
-    right: 10px !important;
-    top: 70% !important; /* Lowered slightly */
-    width: 45px !important; 
+    right: 15px !important;
+    top: 60% !important;
+    width: 55px !important;
     height: 45px !important;
-    font-size: 18px !important;
+    z-index: 1000 !important;
 }
 
-/***** SECTION 4 MOBILE (LEADER FIX) *****/
+/***** SECTION 4 MOBILE (LEADERS - SHRINKING WHITE BOX) *****/
 .section_four {
-    padding: 40px 15px !important;
+    padding: 50px 20px !important;
 }
 
 .leader-card {
-    padding: 25px 15px !important;
-    min-height: auto !important; /* Remove any forced height */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 30px 20px !important; /* Reduced padding to make the white box smaller */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    height: auto !important; /* Lets it shrink to fit text */
 }
 
-.leader-card h2 { font-size: 22px !important; }
+.leader-card h2 { 
+    font-size: 26px !important; 
+    margin-bottom: 15px !important;
+}
+
+.leader-card p {
+    font-size: 1rem !important;
+    margin: 10px 0 !important;
+}
+
+.leader-contact {
+    margin-top: 20px !important;
+    padding-top: 20px !important;
+}
 
 /***** SECTION 5 MOBILE *****/
 .section_five {
-    height: 200px !important; /* Much shorter banner */
+    height: 280px !important;
 }
