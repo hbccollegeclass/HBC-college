@@ -1,114 +1,119 @@
 /********** MOBILE STYLES **********/
 
-/* 1. RESET THE FOUNDATION */
-html, body {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden; 
-    display: block !important; 
-}
+/* The Media Query below ensures these styles ONLY touch mobile phones */
+@media (max-width: 768px) {
 
-/* 2. FORCE SECTIONS TO SHRINK */
-.section_one,
-.section_two,
-.section_three,
-.section_four {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important; 
-    width: 100% !important;
-    padding: 30px 20px !important; /* Tight vertical spacing */
-    box-sizing: border-box !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-}
+    /* 1. RESET THE FOUNDATION */
+    html, body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden; 
+        display: block !important; 
+    }
 
-/***** SECTION 1 MOBILE *****/
-.title h1 {
-    font-size: 28px !important;
-    text-align: center !important;
-}
-.image_container img {
-    width: 100% !important;
-    height: 250px !important;
-    margin-bottom: 15px !important;
-}
+    /* 2. FORCE SECTIONS TO SHRINK */
+    .section_one,
+    .section_two,
+    .section_three,
+    .section_four {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        width: 100% !important;
+        padding: 30px 20px !important; /* Tight vertical spacing */
+        box-sizing: border-box !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+    }
 
-/***** SECTION 2 MOBILE (VISIT - CENTERED) *****/
-.section_two {
-    text-align: center !important;
-    gap: 20px !important;
-}
-.sub-title {
-    margin: 0 !important;
-    width: 100% !important;
-    text-align: center !important;
-}
-.sub-title h1 {
-    margin-left: 0 !important;
-    font-size: 32px !important;
-}
-.section_two h2 {
-    margin-left: 0 !important;
-    font-size: 1.1rem !important;
-}
-.map_container {
-    width: 100% !important;
-    height: 250px !important;
-}
+    /***** SECTION 1 MOBILE *****/
+    .title h1 {
+        font-size: 28px !important;
+        text-align: center !important;
+    }
+    .image_container img {
+        width: 100% !important;
+        height: 250px !important;
+        margin-bottom: 15px !important;
+    }
 
-/***** SECTION 3: COMPACT MOBILE SLIDER *****/
-.section_three {
-    padding: 30px 0 !important; /* Minimum padding for height */
-}
-.events {
-    margin-bottom: 15px !important;
-}
-.events h1 {
-    font-size: 28px !important;
-}
-.event-slider {
-    padding: 0 15px 15px 15px !important;
-    margin-top: 0 !important;
-}
-.event-item {
-    flex: 0 0 85% !important;
-    margin-right: 15px !important;
-    
-    /* HEIGHT FIXES */
-    min-height: 0 !important;      /* Removes the 350px tallness */
-    height: auto !important;       /* Wraps tightly to text */
-    max-height: 280px !important;  /* Stops it from becoming giant */
-    padding: 20px !important;
-    margin-top: 5px !important;
-}
-.event-item h2 { font-size: 1.1rem !important; }
-.event-item ul { font-size: 0.9rem !important; }
+    /***** SECTION 2 MOBILE (VISIT - CENTERED) *****/
+    .section_two {
+        text-align: center !important;
+        gap: 20px !important;
+        flex-wrap: nowrap !important; /* Keeps it stacked vertically */
+    }
+    .sub-title {
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .sub-title h1 {
+        margin-left: 0 !important;
+        font-size: 32px !important;
+    }
+    .section_two h2 {
+        margin-left: 0 !important;
+        font-size: 1.1rem !important;
+    }
+    .map_container {
+        width: 100% !important;
+        height: 250px !important;
+    }
 
-.scroll-arrow {
-    display: flex !important;
-    position: absolute !important;
-    right: 10px !important;
-    top: 65% !important;
-    width: 50px !important;
-    height: 45px !important;
-    z-index: 1000 !important;
-}
+    /***** SECTION 3: COMPACT MOBILE SLIDER *****/
+    .section_three {
+        padding: 30px 0 !important; 
+    }
+    .events {
+        margin-bottom: 15px !important;
+    }
+    .events h1 {
+        font-size: 28px !important;
+    }
+    .event-slider {
+        padding: 0 15px 15px 15px !important;
+        margin-top: 0 !important;
+    }
+    .event-item {
+        flex: 0 0 85% !important;
+        margin-right: 15px !important;
+        
+        /* HEIGHT FIXES */
+        min-height: 0 !important;      
+        height: auto !important;       
+        max-height: 280px !important;  
+        padding: 20px !important;
+        margin-top: 5px !important;
+    }
+    .event-item h2 { font-size: 1.1rem !important; }
+    .event-item ul { font-size: 0.9rem !important; }
 
-/***** SECTION 4 MOBILE *****/
-.section_four {
-    padding: 40px 20px !important;
-}
-.leader-card {
-    width: 100% !important;
-    padding: 25px 20px !important; /* Smaller white box */
-    height: auto !important;
-    min-height: 0 !important;
-}
+    .scroll-arrow {
+        display: flex !important;
+        position: absolute !important;
+        right: 10px !important;
+        top: 65% !important;
+        width: 50px !important;
+        height: 45px !important;
+        z-index: 1000 !important;
+    }
 
-/***** SECTION 5 MOBILE *****/
-.section_five {
-    height: 250px !important;
+    /***** SECTION 4 MOBILE *****/
+    .section_four {
+        padding: 40px 20px !important;
+    }
+    .leader-card {
+        width: 100% !important;
+        padding: 25px 20px !important; 
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /***** SECTION 5 MOBILE *****/
+    .section_five {
+        height: 250px !important;
+    }
 }
