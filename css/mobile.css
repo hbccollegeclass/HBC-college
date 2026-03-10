@@ -1,5 +1,6 @@
 /********** MOBILE STYLES **********/
 
+/* 1. RESET THE FOUNDATION */
 html, body {
     width: 100% !important;
     margin: 0 !important;
@@ -8,7 +9,7 @@ html, body {
     display: block !important; 
 }
 
-/* 1. COMPACT VERTICAL SPACING */
+/* 2. UNIVERSAL SECTION TWEAKS - Resetting Grid & Offsets */
 .section_one,
 .section_two,
 .section_three,
@@ -16,80 +17,112 @@ html, body {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    padding: 40px 20px !important; /* Reduced from 60px/80px to stop it being "too tall" */
+    padding: 40px 20px !important; 
     box-sizing: border-box;
-    grid-row: auto !important; 
+    
+    /* These lines fix the "shifted to the right" issue */
+    margin: 0 !important; 
+    left: 0 !important;
+    grid-row: auto !important;
+    grid-column: auto !important;
 }
 
 /***** SECTION 1 MOBILE *****/
 .title h1 {
-    font-size: 28px !important; /* Smaller text for mobile */
-    margin-bottom: 10px !important;
+    font-size: 28px !important;
+    margin: 0 !important;
+    text-align: center !important;
+}
+
+.image_container {
+    width: 100% !important;
+    margin: 20px 0 0 0 !important; /* Reset any left margins */
 }
 
 .image_container img {
     width: 100% !important;
-    height: 220px !important; /* Reduced height */
+    height: 220px !important;
+    margin: 0 !important; /* Fixes image shift */
 }
 
 /***** SECTION 2 MOBILE *****/
 .section_two {
     gap: 20px !important;
+    align-items: center !important;
 }
 
-.map_container iframe {
-    height: 250px !important; /* Smaller map */
+.sub-title, .sub-title h1 {
+    text-align: center !important;
+    margin-left: 0 !important; /* Removes desktop push */
+    width: 100% !important;
+}
+
+.section_two h2 {
+    text-align: center !important;
+    margin-left: 0 !important;
+}
+
+.map_container {
+    margin: 20px 0 0 0 !important; /* Centering the map */
+    width: 100% !important;
 }
 
 /***** SECTION 3 MOBILE (The Slider) *****/
 .section_three {
     padding: 40px 0 !important; 
-    position: relative;
+    position: relative !important;
 }
 
 .event-slider {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
     padding: 0 20px 20px 20px !important; 
-    /* This makes sure the slider doesn't grow vertically */
-    align-items: stretch; 
+    margin: 0 !important;
 }
 
 .event-item {
-    flex: 0 0 80% !important; 
+    flex: 0 0 85% !important; 
     margin-right: 15px !important;
-    min-height: 200px !important; /* Lowered from 300px to stop it being "tall" */
-    padding: 20px !important;
+    min-height: 200px !important;
     height: auto !important;
 }
 
-/* 2. BRING BACK THE ARROW (Mobile Optimized) */
+/* FIXING THE ARROW */
 .scroll-arrow {
-    display: flex !important; /* Re-enabled */
+    display: flex !important; /* Forces it to show */
+    visibility: visible !important;
     position: absolute !important;
-    right: 15px;
-    top: 65%;
-    width: 60px !important; /* Smaller for mobile */
-    height: 40px !important;
-    font-size: 20px !important;
-    border-radius: 20px !important;
-    z-index: 100;
-    opacity: 0.9;
+    right: 10px !important; /* Pins it to the right edge */
+    top: 60% !important;
+    width: 50px !important; 
+    height: 50px !important;
+    background-color: #FFF2E1 !important;
+    color: #5A632C !important;
+    z-index: 9999 !important; /* Keeps it above everything */
+    border-radius: 50% !important;
 }
 
 /***** SECTION 4 MOBILE *****/
+.section_four {
+    align-items: center !important;
+}
+
+.section_four h1 {
+    text-align: center !important;
+    margin: 0 0 20px 0 !important;
+}
+
+.leader-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
 .leader-card {
-    padding: 30px 20px !important;
-    max-width: 100% !important;
-}
-
-.leader-card h2 {
-    font-size: 24px !important;
-}
-
-.leader-card p {
-    font-size: 16px !important;
+    margin: 0 !important; /* Prevents shifting to the right */
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /***** SECTION 5 MOBILE *****/
