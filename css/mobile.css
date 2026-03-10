@@ -12,12 +12,11 @@ html, body {
 .section_one, .section_two, .section_three, .section_four {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; /* Forces horizontal centering */
+    align-items: center !important; 
     justify-content: flex-start !important;
     width: 100% !important;
-    padding: 50px 20px !important; /* Back to a comfortable middle-ground */
+    padding: 40px 20px !important; 
     box-sizing: border-box !important;
-    height: auto !important;
 }
 
 /***** SECTION 1 MOBILE *****/
@@ -26,22 +25,16 @@ html, body {
     text-align: center !important;
 }
 
-.image_container {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
 .image_container img {
     width: 100% !important;
-    height: 250px !important; /* Restored height so they don't look squashed */
+    height: 250px !important; /* Restored as requested */
     margin-bottom: 15px !important;
 }
 
-/***** SECTION 2 MOBILE (VISIT - CENTERED) *****/
+/***** SECTION 2 MOBILE (VISIT - FIXED CENTERING) *****/
 .section_two {
     text-align: center !important;
+    align-items: center !important;
 }
 
 .sub-title {
@@ -49,39 +42,25 @@ html, body {
     padding: 0 !important;
     width: 100% !important;
     text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
 }
 
-.sub-title h1 {
-    font-size: 32px !important;
-    margin-left: 0 !important; /* Removes desktop push */
+.sub-title h1, .section_two h2 {
+    margin-left: 0 !important; /* Removes desktop indents */
+    margin-right: 0 !important;
     text-align: center !important;
-}
-
-.section_two h2 {
-    font-size: 1.1rem !important;
-    margin: 8px 0 !important;
-    text-align: center !important;
+    width: 100% !important;
 }
 
 .map_container {
     width: 100% !important;
     max-width: 100% !important;
-    height: 280px !important; /* Capped height */
+    height: 250px !important; 
     margin: 20px 0 0 0 !important;
 }
 
-.map_container iframe {
-    height: 100% !important;
-    width: 100% !important;
-}
-
-/***** SECTION 3 MOBILE (SLIDER) *****/
+/***** SECTION 3 MOBILE (SHORTENED EVENT ITEMS) *****/
 .section_three {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 40px 0 !important; 
 }
 
 .event-slider {
@@ -91,50 +70,47 @@ html, body {
 .event-item {
     flex: 0 0 85% !important;
     margin-right: 15px !important;
-    min-height: 200px !important; 
-    max-height: 350px !important; /* Stops it from being "too big" */
-    padding: 25px !important;
+    
+    /* SHORTER FIXES START HERE */
+    min-height: 120px !important; /* Very short minimum */
+    max-height: 280px !important; /* Caps the height */
+    padding: 15px 20px !important; /* Tightens the internal space */
+    margin-top: 10px !important;  /* Brings it closer to the title */
+    
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centers text vertically in the shorter box */
+}
+
+.event-item h2 { 
+    font-size: 1.1rem !important; 
+    margin-bottom: 5px !important; 
+}
+
+.event-item ul { 
+    font-size: 0.9rem !important; 
+    padding-left: 15px !important; 
 }
 
 .scroll-arrow {
     display: flex !important;
     right: 15px !important;
-    top: 60% !important;
-    width: 55px !important;
-    height: 45px !important;
+    top: 65% !important;
+    width: 50px !important;
+    height: 40px !important;
     z-index: 1000 !important;
 }
 
-/***** SECTION 4 MOBILE (LEADERS - SHRINKING WHITE BOX) *****/
-.section_four {
-    padding: 50px 20px !important;
-}
-
+/***** SECTION 4 MOBILE (COMPACT LEADERS) *****/
 .leader-card {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 30px 20px !important; /* Reduced padding to make the white box smaller */
+    padding: 20px !important; /* Shorter white box */
     margin: 0 !important;
-    box-sizing: border-box !important;
-    height: auto !important; /* Lets it shrink to fit text */
 }
 
-.leader-card h2 { 
-    font-size: 26px !important; 
-    margin-bottom: 15px !important;
-}
-
-.leader-card p {
-    font-size: 1rem !important;
-    margin: 10px 0 !important;
-}
-
-.leader-contact {
-    margin-top: 20px !important;
-    padding-top: 20px !important;
-}
+.leader-card h2 { font-size: 24px !important; }
 
 /***** SECTION 5 MOBILE *****/
 .section_five {
-    height: 280px !important;
+    height: 250px !important;
 }
