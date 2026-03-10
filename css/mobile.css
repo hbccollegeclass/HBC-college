@@ -101,59 +101,55 @@
         z-index: 1000 !important;
     }
 
-    /***** SECTION 4 MOBILE (FIXED CENTERING) *****/
+/***** SECTION 4 MOBILE (ANTI-SQUISH FIX) *****/
     .section_four {
         padding: 40px 20px !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important; 
         width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .section_four h1 {
-        text-align: center !important;
-        margin-bottom: 25px !important;
     }
 
     .leader-container {
-        display: block !important; /* Changed from flex to block for easier centering */
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100% !important; /* Force it to match the screen width */
+        display: block !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
     .leader-card {
-        width: 100% !important; /* Fill the screen width */
-        max-width: 100% !important;
-        margin: 0 auto !important; /* Force horizontal centering */
+        /* 1. RESET WIDTH: This stops the 'squish' */
+        width: 100% !important; 
+        max-width: 100% !important; 
+        
+        /* 2. RESET MARGINS: Forces it to stay inside the screen */
+        margin: 0 !important; 
+        
+        /* 3. PADDING: Internal space for the text */
         padding: 30px 20px !important; 
-        box-sizing: border-box !important;
+        
+        /* 4. MEASUREMENT: Ensures padding doesn't add to width */
+        box-sizing: border-box !important; 
+
+        /* 5. VISUALS */
+        text-align: center !important;
         height: auto !important;
         min-height: 0 !important;
-        text-align: center !important;
-        
-        /* Reset any desktop inherited positioning */
-        position: static !important;
-        transform: none !important;
     }
 
     .leader-card h2 {
         font-size: 24px !important;
-        margin-top: 0 !important;
         color: #C36D2B !important;
+        margin-bottom: 15px !important;
     }
 
     .leader-card p {
         font-size: 16px !important;
-        line-height: 1.5 !important;
-        margin: 15px 0 !important;
+        margin: 10px 0 !important;
     }
 
-    .leader-contact {
-        margin-top: 20px !important;
-        padding-top: 20px !important;
-        border-top: 1px solid rgba(19, 62, 87, 0.1);
+    .leader-contact a {
+        word-wrap: break-word; /* Prevents long emails from breaking the box */
+        font-size: 15px !important;
     }
 }
