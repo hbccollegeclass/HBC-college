@@ -101,19 +101,47 @@
         z-index: 1000 !important;
     }
 
-    /***** SECTION 4 MOBILE *****/
+    /***** SECTION 4 MOBILE (FIXED CENTERING) *****/
     .section_four {
         padding: 40px 20px !important;
-    }
-    .leader-card {
-        width: 100% !important;
-        padding: 25px 20px !important; 
-        height: auto !important;
-        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centers the container */
     }
 
-    /***** SECTION 5 MOBILE *****/
-    .section_five {
-        height: 250px !important;
+    .leader-container {
+        display: flex !important;
+        justify-content: center !important; /* Centers the card inside the container */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .leader-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important; /* Removes any desktop margin-left that caused the 'squish' */
+        padding: 30px 20px !important; 
+        box-sizing: border-box !important;
+        height: auto !important;
+        min-height: 0 !important;
+        text-align: center !important;
+    }
+
+    .leader-card h2 {
+        font-size: 24px !important;
+        margin-top: 0 !important;
+        color: #C36D2B !important;
+    }
+
+    .leader-card p {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+
+    .leader-contact {
+        margin-top: 20px !important;
+        padding-top: 20px !important;
     }
 }
