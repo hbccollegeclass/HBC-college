@@ -106,12 +106,18 @@
         padding: 40px 20px !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important; /* Centers the container */
+        align-items: center !important; 
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .section_four h1 {
+        text-align: center !important;
+        margin-bottom: 25px !important;
     }
 
     .leader-container {
-        display: flex !important;
-        justify-content: center !important; /* Centers the card inside the container */
+        display: block !important; /* Changed from flex to block for easier centering */
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -119,14 +125,18 @@
     }
 
     .leader-card {
-        width: 100% !important;
+        width: 100% !important; /* Fill the screen width */
         max-width: 100% !important;
-        margin: 0 !important; /* Removes any desktop margin-left that caused the 'squish' */
+        margin: 0 auto !important; /* Force horizontal centering */
         padding: 30px 20px !important; 
         box-sizing: border-box !important;
         height: auto !important;
         min-height: 0 !important;
         text-align: center !important;
+        
+        /* Reset any desktop inherited positioning */
+        position: static !important;
+        transform: none !important;
     }
 
     .leader-card h2 {
@@ -138,10 +148,12 @@
     .leader-card p {
         font-size: 16px !important;
         line-height: 1.5 !important;
+        margin: 15px 0 !important;
     }
 
     .leader-contact {
         margin-top: 20px !important;
         padding-top: 20px !important;
+        border-top: 1px solid rgba(19, 62, 87, 0.1);
     }
 }
